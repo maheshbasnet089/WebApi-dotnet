@@ -9,11 +9,11 @@ namespace webAPIDevelopment.Controllers
     [ApiController]
     public class PostsController : ControllerBase
     {
-        private readonly PostsService _postsService;
-        public PostsController(){
+        private readonly IPostService _postsService;
+        public PostsController(IPostService postService){
             _postsService = new PostsService();
         }
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<Post>> GetPost(int id){
             var post = await _postsService.GetPost(id);
             if(post==null){
