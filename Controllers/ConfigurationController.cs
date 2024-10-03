@@ -10,7 +10,7 @@ public class ConfigurationController(IConfiguration configuration): ControllerBa
     [HttpGet]
     [Route("secret")]
     public ActionResult GetMyKey(){
-        var myKey = configuration["Secret"]; 
+        var myKey = configuration["Database:ConnectionString"]; 
         return Ok(myKey);
     }
 }
